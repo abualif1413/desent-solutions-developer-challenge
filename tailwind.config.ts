@@ -96,38 +96,38 @@ const config: Config = {
       },
       fontSize: {
         "headline-lg": [
-          "24px",
+          "2rem",
           { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" },
         ],
         "label-md": [
-          "11px",
+          "1rem",
           { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "500" },
         ],
-        "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+        "body-sm": ["1rem", { lineHeight: "16px", fontWeight: "400" }],
         "label-sm": [
-          "10px",
+          "0.8rem",
           { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "500" },
         ],
-        "body-md": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+        "body-md": ["1.1rem", { lineHeight: "18px", fontWeight: "400" }],
         "label-xs": [
-          "9px",
+          "0.7rem",
           { lineHeight: "12px", letterSpacing: "0.05em", fontWeight: "600" },
         ],
         "headline-xl": [
-          "32px",
+          "2.5rem",
           { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "600" },
         ],
         "headline-md": [
-          "18px",
+          "1.6rem",
           { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" },
         ],
         "headline-sm": [
-          "15px",
+          "1.2rem",
           { lineHeight: "20px", letterSpacing: "-0.005em", fontWeight: "600" },
         ],
-        "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+        "body-lg": ["1.2rem", { lineHeight: "22px", fontWeight: "400" }],
         "label-lg": [
-          "12px",
+          "1rem",
           { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" },
         ],
       },

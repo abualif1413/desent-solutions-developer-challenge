@@ -25,13 +25,13 @@ const PaletteItem: FC<PaletteItemProps> = ({
           className="aspect-square"
         />
         <div className="flex flex-col min-w-0">
-          <span className="font-headline-sm text-[13px] text-slate-800 font-medium truncate leading-tight group-hover:text-primary transition-colors">
+          <span className="font-headline-sm text-[1rem] text-slate-800 font-medium truncate leading-tight group-hover:text-primary transition-colors mb-2">
             {brandName}
           </span>
-          <span className="font-label-sm text-[11px] text-slate-400">
+          <span className="font-label-sm text-[0.7rem] text-slate-600">
             {description}
           </span>
-          <span className="font-headline-sm text-[13px] text-slate-800 font-medium truncate leading-tight group-hover:text-primary transition-colors mt-2">
+          <span className="font-headline-sm text-[0.8rem] text-slate-800 font-medium truncate leading-tight group-hover:text-primary transition-colors mt-2">
             {formatMoney(price, "$")}
           </span>
         </div>

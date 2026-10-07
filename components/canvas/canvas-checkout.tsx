@@ -34,7 +34,7 @@ const CanvasCheckout = () => {
             <span className="material-symbols-outlined text-primary text-[18px]">
               receipt_long
             </span>
-            <span className="font-headline-sm text-[13px] text-slate-800 font-semibold tracking-tight">
+            <span className="font-headline-sm text-[1rem] text-slate-800 font-semibold tracking-tight">
               Rental Summary
             </span>
           </div>
@@ -58,13 +58,13 @@ const CanvasCheckout = () => {
                 className="aspect-square"
               />
               <div className="flex flex-col">
-                <span className="font-headline-sm text-[12px]">
+                <span className="font-headline-sm text-[1rem]">
                   {items.length} {brandName}
                 </span>
-                <span className="font-label-sm text-[12px] font-bold text-slate-800">
+                <span className="font-label-sm text-[0.7rem] font-bold text-slate-800">
                   @{formatMoney(items[0].paletteItem.price, "$")}
                 </span>
-                <span className="font-label-sm text-[12px] font-bold text-slate-800">
+                <span className="font-label-sm text-[0.7rem] font-bold text-slate-800">
                   Subtotal{" "}
                   {formatMoney(items[0].paletteItem.price * items.length, "$")}
                 </span>
@@ -74,10 +74,10 @@ const CanvasCheckout = () => {
         </div>
         <div className="flex items-baseline justify-between mb-2">
           <div className="flex flex-col">
-            <span className="font-label-sm text-[10px] uppercase tracking-wider text-slate-400 font-medium">
+            <span className="font-label-sm text-[0.7rem] uppercase tracking-wider text-slate-400 font-medium">
               Total
             </span>
-            <span className="font-headline-md text-[18px] text-slate-900 font-semibold tracking-tight leading-tight">
+            <span className="font-headline-md text-[1.2rem] text-slate-900 font-semibold tracking-tight leading-tight">
               {formatMoney(total)}
             </span>
           </div>
@@ -85,9 +85,9 @@ const CanvasCheckout = () => {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            className="flex-1 bg-primary text-white hover:bg-primary/90 font-label-sm text-[11px] py-1.5 px-2.5 rounded-lg font-medium transition-all shadow-xs flex items-center justify-center gap-1"
+            className="flex-1 bg-primary text-white hover:bg-primary/90 font-label-sm text-[1rem] py-1.5 px-2.5 rounded-lg font-medium transition-all shadow-xs flex items-center justify-center gap-1"
           >
-            <span className="material-symbols-outlined text-[14px]">
+            <span className="material-symbols-outlined text-[1.2rem]">
               assignment
             </span>
             <span className="">Checkout</span>
@@ -106,7 +106,7 @@ const CanvasCheckout = () => {
             receipt_long
           </span>
           <div className="flex flex-col text-left leading-tight">
-            <span className="text-[12px] font-semibold text-slate-900">
+            <span className="text-[1rem] font-semibold text-slate-900">
               {formatMoney(total)}
             </span>
           </div>

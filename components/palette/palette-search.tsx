@@ -21,7 +21,7 @@ const PaletteSearch = () => {
   }, []);
 
   return (
-    <div className="p-space-sm overflow-hidden bg-white border-b border-slate-200/80 flex flex-col gap-space-sm">
+    <div className="py-space-xl px-space-md overflow-hidden bg-white border-b border-slate-200/80 flex flex-col gap-space-md">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="material-symbols-outlined text-primary text-[20px]">

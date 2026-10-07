@@ -15,7 +15,6 @@ const CanvasMain: FC<CanvasMainProps> = ({ width, height }) => {
 
   return (
     <Stage
-      draggable
       width={width}
       height={height}
       onMouseDown={(e) => {
@@ -24,6 +23,7 @@ const CanvasMain: FC<CanvasMainProps> = ({ width, height }) => {
       onTouchStart={(e) => {
         if (e.target === e.target.getStage()) setSelectedItem([]);
       }}
+      className="bg-[#f1f5f9] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]"
     >
       <Layer>
         {canvasElements.map((element) => {

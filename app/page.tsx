@@ -71,7 +71,7 @@ export default function Home() {
             )}
           </aside>
           <div
-            className="flex-1 relative overflow-hidden bg-[#f1f5f9] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]"
+            className="flex-1 relative overflow-hidden"
             ref={canvasContainerRef}
           >
             <button
