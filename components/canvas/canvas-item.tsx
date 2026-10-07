@@ -27,7 +27,15 @@ const CanvasItem: FC<CanvasItemProps> = ({
   }, [isSelected]);
 
   if (status === "failed") {
-    return <Rect x={imageElement.x} y={imageElement.y} width={imageElement.width} height={imageElement.height} stroke="red" />;
+    return (
+      <Rect
+        x={imageElement.x}
+        y={imageElement.y}
+        width={imageElement.width}
+        height={imageElement.height}
+        stroke="red"
+      />
+    );
   }
 
   return (

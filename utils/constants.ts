@@ -68,7 +68,8 @@ export const PALETTE_ITEMS: PaletteItemProps[] = [
   {
     brandName: "Hydro Vase Planter",
     category: "Accessories",
-    description: "Fluted ceramic architectural planter with integrated soil moisture telemetry, automated micro-wick irrigation, and ambient status LED ring",
+    description:
+      "Fluted ceramic architectural planter with integrated soil moisture telemetry, automated micro-wick irrigation, and ambient status LED ring",
     materialIcon: "potted_plant",
     canvasImageUrl: "/palettes/plant-1.svg",
     price: 8,

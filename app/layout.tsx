@@ -17,15 +17,19 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Workspace Designer',
-  description: 'Drag & Drop and Customize Your Workspace',
-}
+  title: "Workspace Designer",
+  description: "Drag & Drop and Customize Your Workspace",
+};
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={classNames("h-full antialiased", hankenGrotesk.variable, jetBrainsMono.variable)}
+      className={classNames(
+        "h-full antialiased",
+        hankenGrotesk.variable,
+        jetBrainsMono.variable,
+      )}
     >
       <head>
         <link
@@ -33,7 +37,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className="bg-[#f8fafc] font-body-md text-on-surface antialiased">{children}</body>
+      <body className="bg-[#f8fafc] font-body-md text-on-surface antialiased">
+        {children}
+      </body>
     </html>
   );
 }
