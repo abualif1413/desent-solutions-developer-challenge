@@ -1,69 +1,97 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect } from "react";
+import useMeasure from "react-use-measure";
+
+import CanvasFloatingBar from "@/components/canvas/canvas-floating-bar";
+import CanvasMain from "@/components/canvas/canvas-main";
+import PaletteMain from "@/components/palette/palette-main";
+import { PALETTE_ITEMS } from "@/utils/constants";
+import CanvasCheckout from "@/components/canvas/canvas-checkout";
+import PaletteSearch from "@/components/palette/palette-search";
+import useStore from "@/hooks/use-store";
+import PaletteEmptyResult from "@/components/palette/palette-empty-result";
+import classNames from "classnames";
+import Backdrop from "@/components/utils/backdrop";
 
 export default function Home() {
+  const [canvasContainerRef, canvasBounds] = useMeasure();
+  const search = useStore((state) => state.search);
+  const isSideBarOpen = useStore((state) => state.isSideBarOpen);
+  const loadSavedItems = useStore((state) => state.loadSavedItems);
+  const hasAnyChanges = useStore((state) => state.hasAnyChanges);
+  const setSideBarOpen = useStore((state) => state.setSideBarOpen);
+
+  useEffect(() => {
+    loadSavedItems();
+  }, []);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (hasAnyChanges) {
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [hasAnyChanges]);
+
+  const paletteItems = search
+    ? PALETTE_ITEMS.filter(
+        (item) =>
+          item.brandName.toLowerCase().includes(search.toLowerCase()) ||
+          item.category.toLowerCase().includes(search.toLowerCase()) ||
+          item.description.toLowerCase().includes(search.toLowerCase()),
+      )
+    : PALETTE_ITEMS;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="relative w-full bg-[#f8fafc] h-dvh">
+      <Backdrop />
+      <div className="flex flex-col w-full h-full overflow-hidden select-none">
+        <div className="flex flex-1 w-full h-full relative overflow-hidden">
+          <aside
+            className={classNames(
+              "w-72 xl:w-80 h-full bg-white border-r border-slate-200/80 flex flex-col z-translated-element flex-shrink-0 shadow-sm absolute md:relative transition-[translate] duration-300 ease-in-out",
+              {
+                "translate-x-0": isSideBarOpen,
+                "translate-x-[-300px] md:translate-x-0": !isSideBarOpen,
+              },
+            )}
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+            <PaletteSearch />
+            {paletteItems.length ? (
+              <PaletteMain paletteItems={paletteItems} />
+            ) : (
+              <PaletteEmptyResult />
+            )}
+          </aside>
+          <div
+            className="flex-1 relative overflow-hidden bg-[#f1f5f9] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]"
+            ref={canvasContainerRef}
+          >
+            <button
+              type="button"
+              className="md:hidden absolute top-4 left-4 z-floating-element bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-md text-slate-800 hover:text-primary rounded-xl px-3 py-2 flex items-center gap-1.5 font-label-sm text-label-sm font-semibold transition-all active:scale-95"
+              onClick={() => void setSideBarOpen(true)}
+            >
+              <span className="material-symbols-outlined text-primary text-[18px]">
+                view_sidebar
+              </span>
+            </button>
+            <CanvasMain
+              width={canvasBounds.width}
+              height={canvasBounds.height}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <CanvasFloatingBar />
+            <CanvasCheckout />
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
