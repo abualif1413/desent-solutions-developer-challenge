@@ -1,6 +1,26 @@
 import type { Config } from "tailwindcss";
+import plugin, { PluginAPI } from 'tailwindcss/plugin';
+
+export const gridPlugin = plugin(function ({ addUtilities }: PluginAPI) {
+  const newUtilities = {
+    '.bg-grid': {
+      backgroundColor: '#f1f5f9',
+      backgroundImage:
+        'linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px)',
+      backgroundSize: '24px 24px',
+    },
+  };
+
+  addUtilities(newUtilities, {
+    respectPrefix: true,
+    respectImportant: true,
+  });
+});
 
 const config: Config = {
+  plugins: [
+    gridPlugin,
+  ],
   darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
