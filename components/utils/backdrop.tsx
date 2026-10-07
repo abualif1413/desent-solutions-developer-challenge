@@ -18,7 +18,11 @@ const Backdrop = () => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black opacity-30 fixed top-0 left-0 w-full h-dvh z-backdrop" onClick={backdropClick} role="button"/>
+    <div
+      className="fixed inset-0 bg-black opacity-30 fixed top-0 left-0 w-full h-dvh z-backdrop"
+      onClick={backdropClick}
+      role="button"
+    />
   );
 };
 

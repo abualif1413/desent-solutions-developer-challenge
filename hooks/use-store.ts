@@ -33,8 +33,8 @@ const useStore = create<CanvasElementStates>((set) => ({
   search: "",
   items: [],
   selectedItems: [],
-  setSideBarOpen: (open: boolean) => set({isSideBarOpen: open}),
-  setCheckoutOpen: (open: boolean) => set({isCheckoutOpen: open}),
+  setSideBarOpen: (open: boolean) => set({ isSideBarOpen: open }),
+  setCheckoutOpen: (open: boolean) => set({ isCheckoutOpen: open }),
   setSearch: (search: string) => set({ search }),
   setSelectedItem: (selectedItems: string[]) => set({ selectedItems }),
   loadSavedItems: () => {
@@ -45,7 +45,7 @@ const useStore = create<CanvasElementStates>((set) => ({
     }
 
     const parsedSavedData = JSON.parse(savedData) as CanvasElementItem[];
-    
+
     set({ hasAnyChanges: false, items: parsedSavedData });
   },
   addItem: (paletteItem: PaletteItemProps) => {
@@ -58,7 +58,11 @@ const useStore = create<CanvasElementStates>((set) => ({
       height: DEFAULT_HEIGHT,
     };
 
-    set((state) => ({ hasAnyChanges: true, isSideBarOpen: false, items: [...state.items, newItem] }));
+    set((state) => ({
+      hasAnyChanges: true,
+      isSideBarOpen: false,
+      items: [...state.items, newItem],
+    }));
   },
   dragItem: ({ x, y, id }) =>
     set((state) => ({

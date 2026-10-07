@@ -10,7 +10,7 @@ export const PALETTE_ITEMS: PaletteItemProps[] = [
     price: 28,
   },
   {
-    brandName: "Nightfall Lift Pro",
+    brandName: "Night Fall Lift Pro",
     category: "Desk",
     description: "Dark height-adjustable desk with ambient underglow",
     materialIcon: "table_bar",
@@ -18,7 +18,7 @@ export const PALETTE_ITEMS: PaletteItemProps[] = [
     price: 34,
   },
   {
-    brandName: "ErgoCore Black",
+    brandName: "Ergo Core Black",
     category: "Chair",
     description: "Mesh ergonomic chair with headrest and lumbar support",
     materialIcon: "chair",
@@ -26,7 +26,7 @@ export const PALETTE_ITEMS: PaletteItemProps[] = [
     price: 18,
   },
   {
-    brandName: "ErgoCore Air White",
+    brandName: "Ergo Core Air White",
     category: "Chair",
     description: "Breathable white mesh chair with adjustable headrest",
     materialIcon: "chair_alt",
@@ -34,7 +34,7 @@ export const PALETTE_ITEMS: PaletteItemProps[] = [
     price: 18,
   },
   {
-    brandName: "ClearView 4K 27",
+    brandName: "Clear View 4K 27",
     category: "Accessories",
     description: `27" UHD flat monitor with a sharp, wide-angle display`,
     materialIcon: "assistant_on_hub",
@@ -42,7 +42,7 @@ export const PALETTE_ITEMS: PaletteItemProps[] = [
     price: 30,
   },
   {
-    brandName: "CurveView 4K 34",
+    brandName: "Curve View 4K 34",
     category: "Accessories",
     description: `34" UHD curved ultrawide for multitasking`,
     materialIcon: "monitor",
@@ -50,7 +50,7 @@ export const PALETTE_ITEMS: PaletteItemProps[] = [
     price: 42,
   },
   {
-    brandName: "LumaBar Desk Light",
+    brandName: "Luma Bar Desk Light",
     category: "Accessories",
     description: "Slim LED bar lamp with adjustable brightness and warmth",
     materialIcon: "light",
@@ -58,11 +58,20 @@ export const PALETTE_ITEMS: PaletteItemProps[] = [
     price: 5,
   },
   {
-    brandName: "PureAir Mini",
+    brandName: "Pure Air Mini",
     category: "Accessories",
     description: "Compact air purifier with a display and fresh-air glow",
     materialIcon: "air_freshener",
     canvasImageUrl: "/palettes/air-freshner-1.svg",
+    price: 8,
+  },
+  {
+    brandName: "Hydro Vase Planter",
+    category: "Accessories",
+    description:
+      "Fluted ceramic architectural planter with integrated soil moisture telemetry, automated micro-wick irrigation, and ambient status LED ring",
+    materialIcon: "potted_plant",
+    canvasImageUrl: "/palettes/plant-1.svg",
     price: 8,
   },
 ];

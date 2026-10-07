@@ -22,7 +22,7 @@ const Pills: FC<PillsProps> = ({
         "px-2.5 py-1 rounded-full text-slate-600 font-label-sm text-label-sm flex items-center gap-1 transition-all",
         {
           "hover:text-slate-900 hover:bg-slate-100": !isDisabled,
-          "opacity-30": isDisabled
+          "opacity-30": isDisabled,
         },
       )}
       type="button"

@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       zIndex: {
         "floating-element": 5,
-        "backdrop": 10,
+        backdrop: 10,
         "translated-element": 15,
       },
       colors: {

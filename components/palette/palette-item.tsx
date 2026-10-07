@@ -15,9 +15,7 @@ const PaletteItem: FC<PaletteItemProps> = ({
 }) => {
   const addElements = useStore((state) => state.addItem);
   return (
-    <div
-      className="catalog-item group p-2.5 rounded-lg bg-white border border-slate-200/90 hover:border-primary/50 hover:shadow-sm transition-all flex items-center justify-between gap-2"
-    >
+    <div className="catalog-item group p-2.5 rounded-lg bg-white border border-slate-200/90 hover:border-primary/50 hover:shadow-sm transition-all flex items-center justify-between gap-2">
       <div className="flex items-start gap-2.5 min-w-0">
         <Image
           src={canvasImageUrl}

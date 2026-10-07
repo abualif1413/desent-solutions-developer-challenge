@@ -24,7 +24,9 @@ const PaletteGroup: FC<PaletteGroupProps> = ({
           {paletteItems.length}
         </span>
       </div>
-      {paletteItems.map((paletteItemProps) => <PaletteItem key={paletteItemProps.brandName} {...paletteItemProps} />)}
+      {paletteItems.map((paletteItemProps) => (
+        <PaletteItem key={paletteItemProps.brandName} {...paletteItemProps} />
+      ))}
     </div>
   );
 };
